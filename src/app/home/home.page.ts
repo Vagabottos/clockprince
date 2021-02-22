@@ -17,6 +17,7 @@ enum ViewState {
 })
 export class HomePage implements OnInit {
 
+  public prevState = null;
   public state = {
     viewState: ViewState.StartGame,
     actionNumber: 0,
@@ -65,6 +66,8 @@ export class HomePage implements OnInit {
           text: 'Yes, Reset',
           role: 'danger',
           handler: () => {
+            this.logState();
+
             this.state.currentView = '';
             this.state.viewState = ViewState.StartGame;
 
@@ -78,6 +81,8 @@ export class HomePage implements OnInit {
   }
 
   startGame(dest: string) {
+    this.logState();
+
     this.state.currentView = dest;
     this.state.viewState = ViewState.Search;
 
@@ -85,6 +90,8 @@ export class HomePage implements OnInit {
   }
 
   startTurn() {
+    this.logState();
+
     this.state.viewState = ViewState.ThreatAssess;
     this.state.actionNumber = 0;
 
@@ -92,6 +99,8 @@ export class HomePage implements OnInit {
   }
 
   threatAssess(dest?: string) {
+    this.logState();
+
     this.state.viewState = ViewState.Search;
     if (dest) {
       this.state.currentView = dest;
@@ -101,12 +110,16 @@ export class HomePage implements OnInit {
   }
 
   searched() {
+    this.logState();
+
     this.state.viewState = ViewState.TakeActions;
 
     this.save();
   }
 
   changeState(dest: string, incrementAction = true) {
+    this.logState();
+
     this.state.currentView = dest;
     this.state.viewState = ViewState.TakeActions;
 
@@ -118,12 +131,26 @@ export class HomePage implements OnInit {
   }
 
   endTurn() {
+    this.logState();
+
     this.state.viewState = ViewState.StartTurn;
 
     this.save();
   }
 
+  logState() {
+    this.prevState = { ...this.state };
+  }
+
   save() {
     localStorage.setItem('state', JSON.stringify(this.state));
+  }
+
+  undo() {
+    if (!this.prevState) { return; }
+
+    this.state = { ...this.prevState };
+    this.prevState = null;
+    this.save();
   }
 }

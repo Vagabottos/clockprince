@@ -9,6 +9,10 @@
     </ion-title>
 
     <ion-buttons slot="end">
+      <ion-button (click)="undo()" *ngIf="prevState">
+        <ion-icon slot="icon-only" name="undo"></ion-icon>
+      </ion-button>
+
       <ion-button (click)="reset()">
         <ion-icon slot="icon-only" name="refresh"></ion-icon>
       </ion-button>
