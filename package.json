@@ -10,7 +10,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --host=0.0.0.0",
-    "build": "npm run lint && npm run prepare && ng build --prod",
+    "build": "npm run lint && ng build --prod",
     "test": "ng test",
     "lint": "ng lint"
   },
