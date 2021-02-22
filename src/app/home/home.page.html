@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      Clockprince
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="reset()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row>
+    <ion-col size="12" size-md="6" offset-md="3">
+      <ion-card *ngIf="state.viewState === 'startgame'">
+        <ion-card-header>
+          <ion-card-title>New Game</ion-card-title>
+        </ion-card-header>
+    
+        <ion-card-content>
+          <ion-list>
+            <ion-item color="pathred" *ngFor="let option of startGameOptions" (click)="startGame(option.dest)">
+              {{ option.text }}
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    
+      <ng-container *ngIf="mindmap.nodes[state.currentView] as mind">
+
+        <ion-card *ngIf="state.viewState === 'startturn'">
+          <ion-card-header>
+            <ion-card-title>Start New Turn</ion-card-title>
+          </ion-card-header>
+    
+          <ion-card-content>
+            <ion-list>
+              <ion-item color="primary" (click)="startTurn()">
+                Begin threat assessment
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="state.viewState === 'threatassess'">
+          <ion-card-header>
+            <ion-card-title>Threat Assessment</ion-card-title>
+          </ion-card-header>
+    
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngFor="let option of threatOptions" [color]="'path' + option.priority" (click)="threatAssess(option.dest)">
+                {{ option.text }}
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="state.viewState === 'search'">
+          <ion-card-header>
+            <ion-card-title>Search & Play 1 Card</ion-card-title>
+          </ion-card-header>
+    
+          <ion-card-content>
+            <ion-list>
+              <ion-item color="primary" (click)="searched()">
+                Begin taking actions
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="state.viewState === 'takeactions'">
+          <ion-card-header>
+            <ion-card-title>{{ mind.text }}</ion-card-title>
+          </ion-card-header>
+    
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngFor="let option of mind.choices" [color]="'path' + option.priority" (click)="changeState(option.dest)">
+                {{ option.text }}
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card color="noplay">
+          <ion-card-header>
+            <ion-card-title>
+              Can't play a card?
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{ mindmap.quadrantPlayCardInability[mind.quadrant] }}
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="state.viewState === 'takeactions'">
+          <ion-list>
+            <ion-item color="primary" (click)="endTurn()">
+              End Turn
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+</ion-content>
