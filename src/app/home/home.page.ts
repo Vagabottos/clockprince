@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
 
   public state = {
     viewState: ViewState.StartGame,
+    actionNumber: 0,
     currentView: ''
   };
 
@@ -85,6 +86,7 @@ export class HomePage implements OnInit {
 
   startTurn() {
     this.state.viewState = ViewState.ThreatAssess;
+    this.state.actionNumber = 0;
 
     this.save();
   }
@@ -104,9 +106,13 @@ export class HomePage implements OnInit {
     this.save();
   }
 
-  changeState(dest: string) {
+  changeState(dest: string, incrementAction = true) {
     this.state.currentView = dest;
     this.state.viewState = ViewState.TakeActions;
+
+    if (incrementAction) {
+      this.state.actionNumber++;
+    }
 
     this.save();
   }

@@ -79,19 +79,28 @@
 
         <ion-card *ngIf="state.viewState === 'takeactions'">
           <ion-card-header>
-            <ion-card-title>{{ mind.text }}</ion-card-title>
+            <ion-card-title *ngIf="state.actionNumber === 0">
+              Current Spot (No Actions Taken)
+            </ion-card-title>
+            
+            <ion-card-title *ngIf="state.actionNumber > 0">Action #{{ state.actionNumber }}</ion-card-title>
           </ion-card-header>
     
           <ion-card-content>
+
+            <div class="action">
+              {{ mind.text }}
+            </div>
+
             <ion-list>
-              <ion-item *ngFor="let option of mind.choices" [color]="'path' + option.priority" (click)="changeState(option.dest)">
+              <ion-item *ngFor="let option of mind.choices" [color]="'path' + option.priority" (click)="changeState(option.dest, !mind.noActionIncrement)">
                 {{ option.text }}
               </ion-item>
             </ion-list>
           </ion-card-content>
         </ion-card>
 
-        <ion-card color="noplay">
+        <ion-card color="noplay" *ngIf="mind.showSearchText || state.viewState === 'search'">
           <ion-card-header>
             <ion-card-title>
               Can't play a card?

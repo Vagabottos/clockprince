@@ -13,6 +13,8 @@ interface MindMap {
   [key: string]: {
     quadrant: Quadrant;
     text: string;
+    noActionIncrement?: boolean;
+    showSearchText?: boolean;
     choices: Array<{ text: string, priority: Priority, dest: keyof MindMap }>
   };
 }
@@ -325,6 +327,7 @@ export class MindmapService {
 
     NeedBanner: {
       quadrant: Quadrant.BottomLeft,
+      noActionIncrement: true,
       text: 'Need a Banner?',
       choices: [
         {
@@ -428,6 +431,7 @@ export class MindmapService {
     BLSearch: {
       quadrant: Quadrant.BottomLeft,
       text: 'Search',
+      showSearchText: true,
       choices: [
         {
           text: 'Next Step',
@@ -442,7 +446,7 @@ export class MindmapService {
       text: 'Pay all secrets for the Darkest Secret',
       choices: [
         {
-          text: 'None of the above',
+          text: 'Next Step',
           priority: 'black',
           dest: 'BRSearch'
         }
@@ -480,6 +484,7 @@ export class MindmapService {
     BRSearch: {
       quadrant: Quadrant.BottomRight,
       text: 'Search',
+      showSearchText: true,
       choices: [
         {
           text: 'Next Step',
