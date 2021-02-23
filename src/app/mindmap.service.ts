@@ -217,6 +217,11 @@ export class MindmapService {
       text: 'Travel to a site with a relic',
       choices: [
         {
+          text: 'Hold Most Relics & Banners?',
+          priority: 'red',
+          dest: 'TLTopMuster'
+        },
+        {
           text: 'Can Pay? (Relic)',
           priority: 'gold',
           dest: 'TRExileRecover'
