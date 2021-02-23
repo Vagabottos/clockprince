@@ -126,7 +126,7 @@ export class MindmapService {
         {
           text: 'None of the above',
           priority: 'black',
-          dest: 'TLTradeFavor'
+          dest: 'TLTravelFavor'
         }
       ]
     },
