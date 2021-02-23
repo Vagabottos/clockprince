@@ -100,6 +100,12 @@
           </ion-card-content>
         </ion-card>
 
+        <ion-card *ngIf="state.viewState === 'takeactions'" [color]="friendConspiratorQuadrant[mind.quadrant] === 'Friend' ? 'medium' : 'dark'">
+          <ion-card-header>
+            <ion-card-title>Alignment: {{ friendConspiratorQuadrant[mind.quadrant] }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
         <ion-card *ngIf="state.viewState === 'takeactions'">
           <ion-card-header>
             <ion-card-title *ngIf="state.actionNumber === 0">

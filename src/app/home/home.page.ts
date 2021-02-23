@@ -24,6 +24,13 @@ export class HomePage implements OnInit {
     currentView: ''
   };
 
+  public friendConspiratorQuadrant = {
+    [Quadrant.TopLeft]: 'Friend',
+    [Quadrant.TopRight]: 'Conspirator',
+    [Quadrant.BottomLeft]: 'Conspirator',
+    [Quadrant.BottomRight]: 'Friend'
+  };
+
   public threatOptions = [
     { text: 'Oath of Supremacy',                  priority: 'red',   dest: 'OathSupremacy',   quad: Quadrant.TopLeft },
     { text: 'Oath of Protection',                 priority: 'red',   dest: 'OathProtection',  quad: Quadrant.TopRight },
