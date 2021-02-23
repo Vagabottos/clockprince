@@ -55,12 +55,31 @@
 
         <ion-card *ngIf="state.viewState === 'threatassess'">
           <ion-card-header>
+            <ion-card-title>Threat Reminder</ion-card-title>
+          </ion-card-header>
+    
+          <ion-card-content>
+            <p>Threat priority is handled as follows:</p>
+            <ol>
+              <li>As Chancellor, does a Citizen meet the Successor goal?</li>
+              <li>As Exile, are you not the Usurper? As Chancellor, is an Exile the Usurper, or is an Exile the Oathkeeper on round eight?</li>
+              <li>Has an Exile revealed and completed a Vision?</li>
+              <li>Is an Exile the Oathkeeper?</li>
+            </ol>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="state.viewState === 'threatassess'">
+          <ion-card-header>
             <ion-card-title>Threat Assessment</ion-card-title>
           </ion-card-header>
     
           <ion-card-content>
             <ion-list>
-              <ion-item *ngFor="let option of threatOptions" [color]="'path' + option.priority" (click)="threatAssess(option.dest)">
+              <ion-item *ngFor="let option of threatOptions" 
+                        [color]="'path' + option.priority" 
+                        [disabled]="mind.quadrant === option.quad"
+                        (click)="threatAssess(option.dest)">
                 {{ option.text }}
               </ion-item>
             </ion-list>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { MindmapService } from '../mindmap.service';
+import { MindmapService, Quadrant } from '../mindmap.service';
 
 enum ViewState {
   StartGame = 'startgame',
@@ -25,11 +25,11 @@ export class HomePage implements OnInit {
   };
 
   public threatOptions = [
-    { text: 'Oath of Supremacy',  priority: 'red',   dest: 'OathSupremacy' },
-    { text: 'Oath of Protection', priority: 'red',   dest: 'OathProtection' },
-    { text: 'Oath of Devotion',   priority: 'red',   dest: 'OathDevotion' },
-    { text: 'Oath of the People', priority: 'red',   dest: 'OathPeople' },
-    { text: 'No threat change',   priority: 'black', dest: '' }
+    { text: 'Oath of Supremacy',                  priority: 'red',   dest: 'OathSupremacy',   quad: Quadrant.TopLeft },
+    { text: 'Oath of Protection',                 priority: 'red',   dest: 'OathProtection',  quad: Quadrant.TopRight },
+    { text: 'Oath of Devotion',                   priority: 'red',   dest: 'OathDevotion',    quad: Quadrant.BottomLeft },
+    { text: 'Oath of the People',                 priority: 'red',   dest: 'OathPeople',      quad: Quadrant.BottomRight },
+    { text: 'Same threat or no threat change',    priority: 'black', dest: '' }
   ];
 
   public startGameOptions = [

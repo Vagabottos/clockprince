@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-enum Quadrant {
+export enum Quadrant {
   TopLeft = 'topleft',
   TopRight = 'topright',
   BottomLeft = 'bottomleft',
