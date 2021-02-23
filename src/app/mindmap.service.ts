@@ -401,7 +401,7 @@ export class MindmapService {
 
     BLMuster: {
       quadrant: Quadrant.BottomLeft,
-      text: 'Need a Banner?',
+      text: 'Muster',
       choices: [
         {
           text: 'Battle Ready? (Holder of Darkest Secret)',
