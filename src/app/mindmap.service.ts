@@ -37,6 +37,7 @@ export class MindmapService {
     OathSupremacy: {
       quadrant: Quadrant.TopLeft,
       text: 'Oath of Supremacy',
+      noActionIncrement: true,
       choices: [
         {
           text: 'Rule Most Sites?',
@@ -152,6 +153,7 @@ export class MindmapService {
     OathProtection: {
       quadrant: Quadrant.TopRight,
       text: 'Oath of Protection',
+      noActionIncrement: true,
       choices: [
         {
           text: 'Hold most relics and banners?',
@@ -311,6 +313,7 @@ export class MindmapService {
     OathDevotion: {
       quadrant: Quadrant.BottomLeft,
       text: 'Oath of Devotion',
+      noActionIncrement: true,
       choices: [
         {
           text: 'Hold DS?',
@@ -466,6 +469,7 @@ export class MindmapService {
     // bottom right
     OathPeople: {
       quadrant: Quadrant.BottomRight,
+      noActionIncrement: true,
       text: 'Oath of the People',
       choices: [
         {

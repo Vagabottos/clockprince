@@ -108,7 +108,7 @@
 
         <ion-card *ngIf="state.viewState === 'takeactions'">
           <ion-card-header>
-            <ion-card-title *ngIf="state.actionNumber === 0">
+            <ion-card-title *ngIf="!state.actionNumber">
               Current Spot (No Actions Taken)
             </ion-card-title>
             
@@ -123,7 +123,13 @@
 
             <ion-list>
               <ion-item *ngFor="let option of mind.choices" [color]="'path' + option.priority" (click)="changeState(option.dest, !mind.noActionIncrement)">
-                {{ option.text }}
+                <ion-label>
+                  {{ option.text }}
+                </ion-label>
+
+                <ion-button slot="end" color="medium" (click)="changeState(option.dest, false); $event.stopPropagation();">
+                  Skip
+                </ion-button>
               </ion-item>
             </ion-list>
           </ion-card-content>
