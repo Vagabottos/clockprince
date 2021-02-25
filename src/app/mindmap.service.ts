@@ -295,6 +295,11 @@ export class MindmapService {
           dest: 'TLTopMuster'
         },
         {
+          text: 'Battle Ready? (Holder of most relics)',
+          priority: 'gold',
+          dest: 'TRTravelCampaignRelic'
+        },
+        {
           text: 'None of the above',
           priority: 'black',
           dest: 'TRTradeFavorSecretLeft'
