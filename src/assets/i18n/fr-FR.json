@@ -1,0 +1,93 @@
+{
+  "App": {
+    "Title": "Clockprince",
+    "Reset": {
+      "Title": "Reset Game?",
+      "Message": "Are you sure you want to reset the Prince's state? You can't reverse this action.",
+      "Cancel": "Cancel",
+      "Confirm": "Yes, Reset"
+    }
+  },
+  "Game": {
+    "Headers": {
+      "NewGame": "New Game",
+      "NewTurn": "Start New Turn",
+      "ThreatReminder": "Threat Reminder",
+      "ThreatAssessment": "Threat Assessment",
+      "SearchPlay": "Search & Play 1 Card",
+      "NoActions": "Current Spot (No Actions Taken)",
+      "SomeActions": "Action",
+      "CantPlay": "Can't play a card?"
+    },
+    "Actions": {
+      "ThreatAssessment": "Begin threat assessment",
+      "TakeActions": "Begin taking actions",
+      "EndTurn": "End Turn",
+      "ThreatChange": "Same threat or no threat change"
+    },
+    "ThreatPriority": {
+      "AsFollows": "Threat priority is handled as follows",
+      "ChancellorCheck": "As Chancellor, does a Citizen meet the Successor goal?",
+      "UsurperCheck": "As Exile, are you not the Usurper? As Chancellor, is an Exile the Usurper, or is an Exile the Oathkeeper on round eight?",
+      "VisionCheck": "Has an Exile revealed and completed a Vision?",
+      "OathkeeperCheck": "Is an Exile the Oathkeeper?"
+    },
+    "QuadrantAlignment": {
+      "Alignment": "Alignment",
+      "Friend": "Friend",
+      "Conspirator": "Conspirator"
+    },
+    "QuadrantCardPlay": {
+      "TopLeft": "Gain 2 warbands and 1 tactic",
+      "TopRight": "Gain 1 warband, 1 favor, and 1 tactic",
+      "BottomLeft": "Gain 1 warband, 1 secret, and 1 tactic",
+      "BottomRight": "Gain 2 favor"
+    },
+    "Oath": {
+      "Supremacy": "Oath of Supremacy",
+      "Protection": "Oath of Protection",
+      "Devotion": "Oath of Devotion",
+      "People": "Oath of the People"
+    },
+    "NodeText": {
+      "OathSupremacy": "Oath of Supremacy",
+      "OathProtection": "Oath of Protection",
+      "OathDevotion": "Oath of Devotion",
+      "OathPeople": "Oath of the People",
+      "TrCmFewestWarbands": "Travel to and Campaign the rival site with fewest warbands",
+      "TrFavor": "Travel to the site with the most favor",
+      "TrSecret": "Travel to the site with the most secrets",
+      "TradeFavor": "Trade for favor",
+      "Muster": "Muster",
+      "TradeFavorSecret": "Trade for favor and secrets",
+      "TradeSecret": "Trade for secrets",
+      "TrRelic": "Travel to a site with a relic",
+      "TrCmMostRelics": "Travel to and campaign against the holder of the most relics",
+      "ExilePay": "Exile may pay secrets as favor",
+      "NeedBanner": "Need a Banner?",
+      "TrCmDarkestSecret": "Travel to and campaign against the holder of the Darkest Secret",
+      "TrCmPeoplesFavor": "Travel to and campaign against the holder of the People's Favor",
+      "Search": "Search",
+      "PayDS": "Pay all secrets for the Darkest Secret",
+      "PayPF": "Pay all secrets for the People's Favor"
+    },
+    "NodeChoice": {
+      "Next": "Next Step",
+      "None": "None of the above",
+      "BRFewest": "Battle Ready? (Rival Site with Fewest)",
+      "RuleMostSites": "Rule most sites?",
+      "CanPayRelic": "Can Pay? (Relic)",
+      "CanPayDS": "Can Pay? (Darkest Secret)",
+      "CanPayPF": "Can Pay? (People's Favor)",
+      "HoldRelicBanners": "Hold Most Relics & Banners?",
+      "BRRelic": "Battle Ready? (Holder of most relics)",
+      "BannerDS": "Darkest Secret?",
+      "BannerPF": "People's Favor?",
+      "BannerBoth": "Both or neither?",
+      "BRDS": "Battle Ready? (Holder of Darkest Secret)",
+      "HoldDS": "Hold Darkest Secret?",
+      "HoldPF": "Hold People's Favor?",
+      "BRPF": "Battle Ready? (Holder of People's Favor)"
+    }
+  }
+}

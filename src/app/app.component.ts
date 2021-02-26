@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-
 import { interval } from 'rxjs';
 
 @Component({
@@ -12,6 +8,7 @@ import { interval } from 'rxjs';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
   constructor(
     private updates: SwUpdate
   ) {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { MindmapService, Quadrant } from '../mindmap.service';
 
 enum ViewState {
@@ -17,6 +18,8 @@ enum ViewState {
 })
 export class HomePage implements OnInit {
 
+  public language: string;
+
   public prevState = null;
   public state = {
     viewState: ViewState.StartGame,
@@ -25,33 +28,46 @@ export class HomePage implements OnInit {
   };
 
   public friendConspiratorQuadrant = {
-    [Quadrant.TopLeft]: 'Friend',
-    [Quadrant.TopRight]: 'Conspirator',
-    [Quadrant.BottomLeft]: 'Conspirator',
-    [Quadrant.BottomRight]: 'Friend'
+    [Quadrant.TopLeft]: 'Game.QuadrantAlignment.Friend',
+    [Quadrant.TopRight]: 'Game.QuadrantAlignment.Conspirator',
+    [Quadrant.BottomLeft]: 'Game.QuadrantAlignment.Conspirator',
+    [Quadrant.BottomRight]: 'Game.QuadrantAlignment.Friend'
   };
 
   public threatOptions = [
-    { text: 'Oath of Supremacy',                  priority: 'red',   dest: 'OathSupremacy',   quad: Quadrant.TopLeft },
-    { text: 'Oath of Protection',                 priority: 'red',   dest: 'OathProtection',  quad: Quadrant.TopRight },
-    { text: 'Oath of Devotion',                   priority: 'red',   dest: 'OathDevotion',    quad: Quadrant.BottomLeft },
-    { text: 'Oath of the People',                 priority: 'red',   dest: 'OathPeople',      quad: Quadrant.BottomRight },
-    { text: 'Same threat or no threat change',    priority: 'black', dest: '' }
+    { text: 'Game.Oath.Supremacy',                  priority: 'red',   dest: 'OathSupremacy',   quad: Quadrant.TopLeft },
+    { text: 'Game.Oath.Protection',                 priority: 'red',   dest: 'OathProtection',  quad: Quadrant.TopRight },
+    { text: 'Game.Oath.Devotion',                   priority: 'red',   dest: 'OathDevotion',    quad: Quadrant.BottomLeft },
+    { text: 'Game.Oath.People',                     priority: 'red',   dest: 'OathPeople',      quad: Quadrant.BottomRight },
+    { text: 'Game.Threat.ThreatChange',             priority: 'black', dest: '' }
   ];
 
   public startGameOptions = [
-    { text: 'Oath of Supremacy',  dest: 'OathSupremacy' },
-    { text: 'Oath of Protection', dest: 'OathProtection' },
-    { text: 'Oath of Devotion',   dest: 'OathDevotion' },
-    { text: 'Oath of the People', dest: 'OathPeople' },
+    { text: 'Game.Oath.Supremacy',  dest: 'OathSupremacy' },
+    { text: 'Game.Oath.Protection', dest: 'OathProtection' },
+    { text: 'Game.Oath.Devotion',   dest: 'OathDevotion' },
+    { text: 'Game.Oath.People',     dest: 'OathPeople' },
   ];
 
   constructor(
+    private translate: TranslateService,
     private alert: AlertController,
     public mindmap: MindmapService
   ) {}
 
   ngOnInit() {
+    this.language = localStorage.getItem('lang');
+    if (!this.language) {
+      const baseLang = navigator.language || 'en-US';
+      if (baseLang.split('-')[0] === 'fr') {
+        this.language = 'fr-FR';
+      } else {
+        this.language = 'en-US';
+      }
+    }
+
+    this.updateTranslate();
+
     try {
       const loadState = JSON.parse(localStorage.getItem('state') || '{}');
       this.state = loadState;
@@ -60,17 +76,27 @@ export class HomePage implements OnInit {
     if (!this.state.viewState) { this.state.viewState = ViewState.StartGame; }
   }
 
+  public languageChange() {
+    localStorage.setItem('lang', this.language);
+
+    this.updateTranslate();
+  }
+
+  private updateTranslate() {
+    this.translate.use(this.language);
+  }
+
   async reset() {
     const alert = await this.alert.create({
-      header: 'Reset Game?',
-      message: 'Are you sure you want to reset the Prince\'s state? You can\'t reverse this action.',
+      header: this.translate.instant('App.Reset.Title'),
+      message: this.translate.instant('App.Reset.Message'),
       buttons: [
         {
-          text: 'Cancel',
+          text: this.translate.instant('App.Reset.Cancel'),
           role: 'cancel',
           cssClass: 'secondary',
         }, {
-          text: 'Yes, Reset',
+          text: this.translate.instant('App.Reset.Confirm'),
           role: 'danger',
           handler: () => {
             this.logState();

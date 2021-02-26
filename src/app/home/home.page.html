@@ -5,7 +5,7 @@
     </ion-buttons>
 
     <ion-title>
-      Clockprince
+      {{ 'App.Title' | translate }}
     </ion-title>
 
     <ion-buttons slot="end">
@@ -17,6 +17,15 @@
         <ion-icon slot="icon-only" name="refresh"></ion-icon>
       </ion-button>
     </ion-buttons>
+
+    <ion-select slot="end" 
+                placeholder="Select Language" 
+                (ionChange)="languageChange()" 
+                [interfaceOptions]="{ header: 'Select Language' }"
+                [(ngModel)]="language">
+      <ion-select-option value="en-US">English</ion-select-option>
+      <ion-select-option value="fr-FR">Français</ion-select-option>
+    </ion-select>
   </ion-toolbar>
 </ion-header>
 
@@ -25,13 +34,13 @@
     <ion-col size="12" size-md="6" offset-md="3">
       <ion-card *ngIf="state.viewState === 'startgame'">
         <ion-card-header>
-          <ion-card-title>New Game</ion-card-title>
+          <ion-card-title>{{ 'Game.Headers.NewGame' | translate }}</ion-card-title>
         </ion-card-header>
     
         <ion-card-content>
           <ion-list>
             <ion-item color="pathred" *ngFor="let option of startGameOptions" (click)="startGame(option.dest)">
-              {{ option.text }}
+              {{ option.text | translate }}
             </ion-item>
           </ion-list>
         </ion-card-content>
@@ -41,13 +50,13 @@
 
         <ion-card *ngIf="state.viewState === 'startturn'">
           <ion-card-header>
-            <ion-card-title>Start New Turn</ion-card-title>
+            <ion-card-title>{{ 'Game.Headers.NewTurn' | translate }}</ion-card-title>
           </ion-card-header>
     
           <ion-card-content>
             <ion-list>
               <ion-item color="primary" (click)="startTurn()">
-                Begin threat assessment
+                {{ 'Game.Actions.ThreatAssessment' | translate }}
               </ion-item>
             </ion-list>
           </ion-card-content>
@@ -55,23 +64,23 @@
 
         <ion-card *ngIf="state.viewState === 'threatassess'">
           <ion-card-header>
-            <ion-card-title>Threat Reminder</ion-card-title>
+            <ion-card-title>{{ 'Game.Headers.ThreatReminder' | translate }}</ion-card-title>
           </ion-card-header>
     
           <ion-card-content>
-            <p>Threat priority is handled as follows:</p>
+            <p>{{ 'Game.ThreatPriority.AsFollows' | translate }}:</p>
             <ol>
-              <li>As Chancellor, does a Citizen meet the Successor goal?</li>
-              <li>As Exile, are you not the Usurper? As Chancellor, is an Exile the Usurper, or is an Exile the Oathkeeper on round eight?</li>
-              <li>Has an Exile revealed and completed a Vision?</li>
-              <li>Is an Exile the Oathkeeper?</li>
+              <li>{{ 'Game.ThreatPriority.ChancellorCheck' | translate }}</li>
+              <li>{{ 'Game.ThreatPriority.UsurperCheck' | translate }}</li>
+              <li>{{ 'Game.ThreatPriority.VisionCheck' | translate }}</li>
+              <li>{{ 'Game.ThreatPriority.OathkeeperCheck' | translate }}</li>
             </ol>
           </ion-card-content>
         </ion-card>
 
         <ion-card *ngIf="state.viewState === 'threatassess'">
           <ion-card-header>
-            <ion-card-title>Threat Assessment</ion-card-title>
+            <ion-card-title>{{ 'Game.Headers.ThreatAssessment' | translate }}</ion-card-title>
           </ion-card-header>
     
           <ion-card-content>
@@ -80,7 +89,7 @@
                         [color]="'path' + option.priority" 
                         [disabled]="mind.quadrant === option.quad"
                         (click)="threatAssess(option.dest)">
-                {{ option.text }}
+                {{ option.text | translate }}
               </ion-item>
             </ion-list>
           </ion-card-content>
@@ -88,13 +97,13 @@
 
         <ion-card *ngIf="state.viewState === 'search'">
           <ion-card-header>
-            <ion-card-title>Search & Play 1 Card</ion-card-title>
+            <ion-card-title>{{ 'Game.Headers.SearchPlay' | translate }}</ion-card-title>
           </ion-card-header>
     
           <ion-card-content>
             <ion-list>
               <ion-item color="primary" (click)="searched()">
-                Begin taking actions
+                {{ 'Game.Actions.TakeActions' | translate }}
               </ion-item>
             </ion-list>
           </ion-card-content>
@@ -102,28 +111,28 @@
 
         <ion-card *ngIf="state.viewState === 'takeactions'" [color]="friendConspiratorQuadrant[mind.quadrant] === 'Friend' ? 'medium' : 'dark'">
           <ion-card-header>
-            <ion-card-title>Alignment: {{ friendConspiratorQuadrant[mind.quadrant] }}</ion-card-title>
+            <ion-card-title>{{ 'Game.QuadrantAlignment.Alignment' | translate }}: {{ friendConspiratorQuadrant[mind.quadrant] | translate }}</ion-card-title>
           </ion-card-header>
         </ion-card>
 
         <ion-card *ngIf="state.viewState === 'takeactions'">
           <ion-card-header>
             <ion-card-title *ngIf="state.actionNumber === 0">
-              Current Spot (No Actions Taken)
+              {{ 'Game.Headers.SearchPlay' | translate }}
             </ion-card-title>
             
-            <ion-card-title *ngIf="state.actionNumber > 0">Action #{{ state.actionNumber }}</ion-card-title>
+            <ion-card-title *ngIf="state.actionNumber > 0">{{ 'Game.Headers.SomeActions' | translate }} #{{ state.actionNumber }}</ion-card-title>
           </ion-card-header>
     
           <ion-card-content>
 
             <div class="action">
-              {{ mind.text }}
+              {{ 'Game.NodeText.' + mind.text | translate }}
             </div>
 
             <ion-list>
               <ion-item *ngFor="let option of mind.choices" [color]="'path' + option.priority" (click)="changeState(option.dest, !mind.noActionIncrement)">
-                {{ option.text }}
+                {{ 'Game.NodeChoice.' + option.text | translate }}
               </ion-item>
             </ion-list>
           </ion-card-content>
@@ -132,19 +141,19 @@
         <ion-card color="noplay" *ngIf="mind.showSearchText || state.viewState === 'search'">
           <ion-card-header>
             <ion-card-title>
-              Can't play a card?
+              {{ 'Game.Headers.CantPlay' | translate }}
             </ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
-            {{ mindmap.quadrantPlayCardInability[mind.quadrant] }}
+            {{ mindmap.quadrantPlayCardInability[mind.quadrant] | translate }}
           </ion-card-content>
         </ion-card>
 
         <ion-card *ngIf="state.viewState === 'takeactions'">
           <ion-list>
             <ion-item color="primary" (click)="endTurn()">
-              End Turn
+              {{ 'Game.Actions.EndTurn' | translate }}
             </ion-item>
           </ion-list>
         </ion-card>

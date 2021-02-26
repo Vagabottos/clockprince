@@ -25,10 +25,10 @@ interface MindMap {
 export class MindmapService {
 
   public quadrantPlayCardInability: Record<Quadrant, string> = {
-    [Quadrant.TopLeft]: 'Gain 2 warbands and 1 tactic',
-    [Quadrant.TopRight]: 'Gain 1 warband, 1 favor, and 1 tactic',
-    [Quadrant.BottomLeft]: 'Gain 1 warband, 1 secret, and 1 tactic',
-    [Quadrant.BottomRight]: 'Gain 2 favor'
+    [Quadrant.TopLeft]: 'Game.QuadrantCardPlay.TopLeft',
+    [Quadrant.TopRight]: 'Game.QuadrantCardPlay.TopRight',
+    [Quadrant.BottomLeft]: 'Game.QuadrantCardPlay.BottomLeft',
+    [Quadrant.BottomRight]: 'Game.QuadrantCardPlay.BottomRight'
   };
 
   public nodes: MindMap = {
@@ -36,7 +36,7 @@ export class MindmapService {
     // top left
     OathSupremacy: {
       quadrant: Quadrant.TopLeft,
-      text: 'Oath of Supremacy',
+      text: 'OathSupremacy',
       choices: [
         {
           text: 'Rule Most Sites?',
@@ -58,15 +58,15 @@ export class MindmapService {
 
     TLBottomTravelCampaign: {
       quadrant: Quadrant.TopLeft,
-      text: 'Travel to and Campaign the rival site with fewest warbands',
+      text: 'TrCmFewestWarbands',
       choices: [
         {
-          text: 'Battle Ready? (Rival Site with Fewest)',
+          text: 'BRFewest',
           priority: 'gold',
           dest: 'TLTopTravelCampaign'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TLTravelFavor'
         }
@@ -75,15 +75,15 @@ export class MindmapService {
 
     TLTopTravelCampaign: {
       quadrant: Quadrant.TopLeft,
-      text: 'Travel to and Campaign the rival site with fewest warbands',
+      text: 'TrCmFewestWarbands',
       choices: [
         {
-          text: 'Rule Most Sites?',
+          text: 'RuleMostSites',
           priority: 'red',
           dest: 'NeedBanner'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TLTopMuster'
         }
@@ -92,10 +92,10 @@ export class MindmapService {
 
     TLTravelFavor: {
       quadrant: Quadrant.TopLeft,
-      text: 'Travel to the site with the most favor',
+      text: 'TrFavor',
       choices: [
         {
-          text: 'Next Step',
+          text: 'Next',
           priority: 'black',
           dest: 'TLTradeFavor'
         }
@@ -104,10 +104,10 @@ export class MindmapService {
 
     TLTradeFavor: {
       quadrant: Quadrant.TopLeft,
-      text: 'Trade for favor',
+      text: 'TradeFavor',
       choices: [
         {
-          text: 'Next Step',
+          text: 'Next',
           priority: 'black',
           dest: 'TLTopMuster'
         }
@@ -119,12 +119,12 @@ export class MindmapService {
       text: 'Muster',
       choices: [
         {
-          text: 'Battle Ready? (Rival Site with Fewest)',
+          text: 'BRFewest',
           priority: 'gold',
           dest: 'TLBottomTravelCampaign'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TLTravelFavor'
         }
@@ -136,12 +136,12 @@ export class MindmapService {
       text: 'Muster',
       choices: [
         {
-          text: 'Battle Ready? (Rival Site with Fewest)',
+          text: 'BRFewest',
           priority: 'gold',
           dest: 'TLTopTravelCampaign'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TLTradeFavor'
         }
@@ -151,7 +151,7 @@ export class MindmapService {
     // top right
     OathProtection: {
       quadrant: Quadrant.TopRight,
-      text: 'Oath of Protection',
+      text: 'OathProtection',
       choices: [
         {
           text: 'Hold most relics and banners?',
@@ -173,10 +173,10 @@ export class MindmapService {
 
     TRTravelFavor: {
       quadrant: Quadrant.TopRight,
-      text: 'Travel to the site with the most favor',
+      text: 'TrFavor',
       choices: [
         {
-          text: 'Next step',
+          text: 'Next',
           priority: 'black',
           dest: 'TRTradeFavorSecretLeft'
         }
@@ -185,10 +185,10 @@ export class MindmapService {
 
     TRTradeFavorSecretLeft: {
       quadrant: Quadrant.TopRight,
-      text: 'Trade for favor and secrets',
+      text: 'TradeFavorSecret',
       choices: [
         {
-          text: 'Next step',
+          text: 'Next',
           priority: 'black',
           dest: 'TRTravelRelicLeft'
         }
@@ -197,15 +197,15 @@ export class MindmapService {
 
     TRTradeFavorSecretRight: {
       quadrant: Quadrant.TopRight,
-      text: 'Trade for favor and secrets',
+      text: 'TradeFavorSecret',
       choices: [
         {
-          text: 'Can Pay? (Relic)',
+          text: 'CanPayRelic',
           priority: 'gold',
           dest: 'TRExileRecover'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TRTravelFavor'
         }
@@ -214,20 +214,20 @@ export class MindmapService {
 
     TRTravelRelicLeft: {
       quadrant: Quadrant.TopRight,
-      text: 'Travel to a site with a relic',
+      text: 'TrRelic',
       choices: [
         {
-          text: 'Hold Most Relics & Banners?',
+          text: 'HoldRelicBanners',
           priority: 'red',
           dest: 'TLTopMuster'
         },
         {
-          text: 'Can Pay? (Relic)',
+          text: 'CanPayRelic',
           priority: 'gold',
           dest: 'TRExileRecover'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TRMuster'
         }
@@ -236,15 +236,15 @@ export class MindmapService {
 
     TRTravelRelicRight: {
       quadrant: Quadrant.TopRight,
-      text: 'Travel to a site with a relic',
+      text: 'TrRelic',
       choices: [
         {
-          text: 'Can Pay? (Relic)',
+          text: 'CanPayRelic',
           priority: 'gold',
           dest: 'TRExileRecover'
         },
         {
-          text: 'Next step',
+          text: 'Next',
           priority: 'black',
           dest: 'TRTradeFavorSecretRight'
         }
@@ -256,12 +256,12 @@ export class MindmapService {
       text: 'Muster',
       choices: [
         {
-          text: 'Battle Ready? (Holder of most relics)',
+          text: 'BRRelic',
           priority: 'gold',
           dest: 'TRTravelCampaignRelic'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TRTravelFavor'
         }
@@ -270,15 +270,15 @@ export class MindmapService {
 
     TRTravelCampaignRelic: {
       quadrant: Quadrant.TopRight,
-      text: 'Travel to and campaign against the holder of the most relics',
+      text: 'TrCmMostRelics',
       choices: [
         {
-          text: 'Hold Most Relics & Banners?',
+          text: 'HoldRelicBanners',
           priority: 'red',
           dest: 'TLTopMuster'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TRTravelRelicLeft'
         }
@@ -287,15 +287,15 @@ export class MindmapService {
 
     TRExileRecover: {
       quadrant: Quadrant.TopRight,
-      text: 'Exile may pay secrets as favor',
+      text: 'ExilePay',
       choices: [
         {
-          text: 'Hold Most Relics & Banners?',
+          text: 'HoldRelicBanners',
           priority: 'red',
           dest: 'TLTopMuster'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TRTradeFavorSecretLeft'
         }
@@ -305,7 +305,7 @@ export class MindmapService {
     // bottom left
     OathDevotion: {
       quadrant: Quadrant.BottomLeft,
-      text: 'Oath of Devotion',
+      text: 'OathDevotion',
       choices: [
         {
           text: 'Hold DS?',
@@ -333,20 +333,20 @@ export class MindmapService {
     NeedBanner: {
       quadrant: Quadrant.BottomLeft,
       noActionIncrement: true,
-      text: 'Need a Banner?',
+      text: 'NeedBanner',
       choices: [
         {
-          text: 'Darkest Secret?',
+          text: 'BannerDS',
           priority: 'red',
           dest: 'BLTradeSecret'
         },
         {
-          text: 'Peoples Favor?',
+          text: 'BannerPF',
           priority: 'red',
           dest: 'OathPeople'
         },
         {
-          text: 'Both or neither?',
+          text: 'BannerBoth',
           priority: 'red',
           dest: 'OathPeople'
         }
@@ -355,15 +355,15 @@ export class MindmapService {
 
     BLTradeSecret: {
       quadrant: Quadrant.BottomLeft,
-      text: 'Trade for Secrets',
+      text: 'TradeSecret',
       choices: [
         {
-          text: 'Can Pay? (Darkest Secret)',
+          text: 'CanPayDS',
           priority: 'gold',
           dest: 'BLPayDarkestSecret'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BLTravelSecret'
         }
@@ -372,10 +372,10 @@ export class MindmapService {
 
     BLTravelSecret: {
       quadrant: Quadrant.BottomLeft,
-      text: 'Travel to the site with the most secrets',
+      text: 'TrSecret',
       choices: [
         {
-          text: 'Next step',
+          text: 'Next',
           priority: 'black',
           dest: 'BLTradeFavorSecret'
         }
@@ -384,15 +384,15 @@ export class MindmapService {
 
     BLTradeFavorSecret: {
       quadrant: Quadrant.BottomLeft,
-      text: 'Trade favor and secrets',
+      text: 'TradeFavorSecret',
       choices: [
         {
-          text: 'Can Pay? (Darkest Secret)',
+          text: 'CanPayDS',
           priority: 'gold',
           dest: 'BLPayDarkestSecret'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BLMuster'
         }
@@ -404,12 +404,12 @@ export class MindmapService {
       text: 'Muster',
       choices: [
         {
-          text: 'Battle Ready? (Holder of Darkest Secret)',
+          text: 'BRDS',
           priority: 'gold',
           dest: 'BLTravelCampaignDS'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BLTravelSecret'
         }
@@ -418,15 +418,15 @@ export class MindmapService {
 
     BLTravelCampaignDS: {
       quadrant: Quadrant.BottomLeft,
-      text: 'Travel to and campaign against the holder of the Darkest Secret',
+      text: 'TrCmDarkestSecret',
       choices: [
         {
-          text: 'Hold DS?',
+          text: 'HoldDS',
           priority: 'red',
           dest: 'BLSearch'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BLTravelSecret'
         }
@@ -439,7 +439,7 @@ export class MindmapService {
       showSearchText: true,
       choices: [
         {
-          text: 'Next Step',
+          text: 'Next',
           priority: 'black',
           dest: 'TLBottomMuster'
         }
@@ -448,10 +448,10 @@ export class MindmapService {
 
     BLPayDarkestSecret: {
       quadrant: Quadrant.BottomLeft,
-      text: 'Pay all secrets for the Darkest Secret',
+      text: 'PayDS',
       choices: [
         {
-          text: 'Next Step',
+          text: 'Next',
           priority: 'black',
           dest: 'BRSearch'
         }
@@ -461,25 +461,25 @@ export class MindmapService {
     // bottom right
     OathPeople: {
       quadrant: Quadrant.BottomRight,
-      text: 'Oath of the People',
+      text: 'OathPeople',
       choices: [
         {
-          text: 'Hold Peoples Favor?',
+          text: 'HoldPF',
           priority: 'red',
           dest: 'BRSearch'
         },
         {
-          text: 'Battle Ready? (Holder of Peoples Favor)',
+          text: 'BRPF',
           priority: 'gold',
           dest: 'BRTravelCampaignPF'
         },
         {
-          text: 'Can Pay? (Peoples Favor)',
+          text: 'CanPayPF',
           priority: 'gold',
           dest: 'BRPayPeoplesFavor'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BRTradeFavor'
         }
@@ -492,7 +492,7 @@ export class MindmapService {
       showSearchText: true,
       choices: [
         {
-          text: 'Next Step',
+          text: 'Next',
           priority: 'black',
           dest: 'TRTravelFavor'
         }
@@ -501,15 +501,15 @@ export class MindmapService {
 
     BRTradeFavor: {
       quadrant: Quadrant.BottomRight,
-      text: 'Trade for favor',
+      text: 'TradeFavor',
       choices: [
         {
-          text: 'Can Pay? (Peoples Favor)',
+          text: 'CanPayPF',
           priority: 'gold',
           dest: 'BRPayPeoplesFavor'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BRTravelFavor'
         }
@@ -518,10 +518,10 @@ export class MindmapService {
 
     BRTravelFavor: {
       quadrant: Quadrant.BottomRight,
-      text: 'Travel to the site with the most favor',
+      text: 'TrFavor',
       choices: [
         {
-          text: 'Next Step',
+          text: 'Next',
           priority: 'black',
           dest: 'BRTradeFavorSecret'
         }
@@ -530,15 +530,15 @@ export class MindmapService {
 
     BRTradeFavorSecret: {
       quadrant: Quadrant.BottomRight,
-      text: 'Trade for favor and secrets',
+      text: 'TradeFavorSecret',
       choices: [
         {
-          text: 'Can Pay? (Peoples Favor)',
+          text: 'CanPayPF',
           priority: 'gold',
           dest: 'BRPayPeoplesFavor'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BRMuster'
         }
@@ -550,12 +550,12 @@ export class MindmapService {
       text: 'Muster',
       choices: [
         {
-          text: 'Battle Ready? (Holder of Peoples Favor)',
+          text: 'BRPF',
           priority: 'gold',
           dest: 'BRTravelCampaignPF'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BRTravelFavor'
         }
@@ -564,15 +564,15 @@ export class MindmapService {
 
     BRTravelCampaignPF: {
       quadrant: Quadrant.BottomRight,
-      text: 'Travel to and campaign against the holder of the Peoples Favor',
+      text: 'TrCmPeoplesFavor',
       choices: [
         {
-          text: 'Hold Peoples Favor?',
+          text: 'HoldPF',
           priority: 'red',
           dest: 'BLSearch'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'BRTravelFavor'
         }
@@ -581,10 +581,10 @@ export class MindmapService {
 
     BRPayPeoplesFavor: {
       quadrant: Quadrant.BottomRight,
-      text: 'Pay all favor for the Peoples Favor',
+      text: 'PayPF',
       choices: [
         {
-          text: 'Next step',
+          text: 'Next',
           priority: 'black',
           dest: 'BRSearch'
         }]
