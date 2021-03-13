@@ -40,17 +40,17 @@ export class MindmapService {
       noActionIncrement: true,
       choices: [
         {
-          text: 'Rule Most Sites?',
+          text: 'RuleMostSites',
           priority: 'red',
           dest: 'NeedBanner'
         },
         {
-          text: 'Battle Ready? (Rival Site with Fewest)',
+          text: 'BRFewest',
           priority: 'gold',
           dest: 'TLBottomTravelCampaign'
         },
         {
-          text: 'None of the above',
+          text: 'None',
           priority: 'black',
           dest: 'TLBottomMuster'
         }

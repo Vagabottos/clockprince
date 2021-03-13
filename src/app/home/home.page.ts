@@ -39,7 +39,7 @@ export class HomePage implements OnInit {
     { text: 'Game.Oath.Protection',                 priority: 'red',   dest: 'OathProtection',  quad: Quadrant.TopRight },
     { text: 'Game.Oath.Devotion',                   priority: 'red',   dest: 'OathDevotion',    quad: Quadrant.BottomLeft },
     { text: 'Game.Oath.People',                     priority: 'red',   dest: 'OathPeople',      quad: Quadrant.BottomRight },
-    { text: 'Game.Threat.ThreatChange',             priority: 'black', dest: '' }
+    { text: 'Game.Actions.ThreatChange',            priority: 'black', dest: '' }
   ];
 
   public startGameOptions = [
