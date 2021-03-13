@@ -26,7 +26,7 @@
       "ThreatChange": "Même menace ou pas de changement"
     },
     "ThreatPriority": {
-      "AsFollows": "La priorité des Menaces est gérée de la façon suivante :",
+      "AsFollows": "La priorité des Menaces est gérée de la façon suivante ",
       "ChancellorCheck": "En tant que Chancelier, un Citoyen atteint-il l'objectif de Succession ?",
       "UsurperCheck": "En tant qu'Exilé, n'êtes vous pas l'Usurpateur ? En tant que Chancelier, un Exilé est-il l'Usurpateur, ou est-il le Gardien du Serment au tour 8 ?",
       "VisionCheck": "Un Exilé a-t-il révélé et complété une Vision ?",
