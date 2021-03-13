@@ -1,94 +1,94 @@
 {
   "App": {
-    "Title": "Clockprince",
+    "Title": "Prince Mécanique",
     "Reset": {
-      "Title": "Reset Game?",
-      "Message": "Are you sure you want to reset the Prince's state? You can't reverse this action.",
-      "Cancel": "Cancel",
-      "Confirm": "Yes, Reset"
+      "Title": "Réinitialiser la partie ?",
+      "Message": "Êtes-vous sûr de vouloir réinitialiser le Prince Mécanique ? Cette action n'est pas réversible.",
+      "Cancel": "Annuler",
+      "Confirm": "Réinitialiser"
     }
   },
   "Game": {
     "Headers": {
-      "NewGame": "New Game",
-      "NewTurn": "Start New Turn",
-      "ThreatReminder": "Threat Reminder",
-      "ThreatAssessment": "Threat Assessment",
-      "SearchPlay": "Search & Play 1 Card",
-      "NoActions": "Current Spot (No Actions Taken)",
+      "NewGame": "Nouvelle Partie",
+      "NewTurn": "Commencer un Nouveau Tour",
+      "ThreatReminder": "Rappel de Menace",
+      "ThreatAssessment": "Evaluer la Menace",
+      "SearchPlay": "Chercher et Jouer une Carte",
+      "NoActions": "Emplacement actuel (Ne pas effectuer d'actions)",
       "SomeActions": "Action",
-      "CantPlay": "Can't play a card?"
+      "CantPlay": "Vous ne pouvez pas jouer de carte ?"
     },
     "Actions": {
-      "ThreatAssessment": "Begin threat assessment",
-      "TakeActions": "Begin taking actions",
-      "EndTurn": "End Turn",
-      "ThreatChange": "Same threat or no threat change"
+      "ThreatAssessment": "Evaluer la Menace",
+      "TakeActions": "Phase d'Actions",
+      "EndTurn": "Fin du Tour",
+      "ThreatChange": "Même menace ou pas de changement"
     },
     "ThreatPriority": {
-      "AsFollows": "Threat priority is handled as follows",
-      "ChancellorCheck": "As Chancellor, does a Citizen meet the Successor goal?",
-      "UsurperCheck": "As Exile, are you not the Usurper? As Chancellor, is an Exile the Usurper, or is an Exile the Oathkeeper on round eight?",
-      "VisionCheck": "Has an Exile revealed and completed a Vision?",
-      "OathkeeperCheck": "Is an Exile the Oathkeeper?"
+      "AsFollows": "La priorité des Menaces est gérée de la façon suivante :",
+      "ChancellorCheck": "En tant que Chancelier, un Citoyen atteint-il l'objectif de Succession ?",
+      "UsurperCheck": "En tant qu'Exilé, n'êtes vous pas l'Usurpateur ? En tant que Chancelier, un Exilé est-il l'Usurpateur, ou est-il le Gardien du Serment au tour 8 ?",
+      "VisionCheck": "Un Exilé a-t-il révélé et complété une Vision ?",
+      "OathkeeperCheck": "Un Exilé est-il le Gardien du Serment ?"
     },
     "QuadrantAlignment": {
-      "Alignment": "Alignment",
-      "Friend": "Friend",
-      "Conspirator": "Conspirator"
+      "Alignment": "Alignement",
+      "Friend": "Ami",
+      "Conspirator": "Conspirateur"
     },
     "QuadrantCardPlay": {
-      "TopLeft": "Gain 2 warbands and 1 tactic",
-      "TopRight": "Gain 1 warband, 1 favor, and 1 tactic",
-      "BottomLeft": "Gain 1 warband, 1 secret, and 1 tactic",
-      "BottomRight": "Gain 2 favor"
+      "TopLeft": "Gagnez 2 troupes et 1 tactique",
+      "TopRight": "Gagnez 1 troupe, 1 faveur et 1 tactique",
+      "BottomLeft": "Gagnez 1 troupe, 1 secret et 1 tactique",
+      "BottomRight": "Gagnez 2 faveurs"
     },
     "Oath": {
-      "Supremacy": "Oath of Supremacy",
-      "Protection": "Oath of Protection",
-      "Devotion": "Oath of Devotion",
-      "People": "Oath of the People"
+      "Supremacy": "Serment de Suprématie",
+      "Protection": "Serment de Protection",
+      "Devotion": "Serment de Dévotion",
+      "People": "Serment du Peuple"
     },
     "NodeText": {
-      "OathSupremacy": "Oath of Supremacy",
-      "OathProtection": "Oath of Protection",
-      "OathDevotion": "Oath of Devotion",
-      "OathPeople": "Oath of the People",
-      "TrCmFewestWarbands": "Travel to and Campaign the rival site with fewest warbands",
-      "TrCmMostRelics": "Travel to and campaign against the holder of the most relics",
-      "TrCmDarkestSecret": "Travel to and campaign against the holder of the Darkest Secret",
-      "TrCmPeoplesFavor": "Travel to and campaign against the holder of the People's Favor",
-      "TrFavor": "Travel to the site with the most favor",
-      "TrSecret": "Travel to the site with the most secrets",
-      "TrRelic": "Travel to a site with a relic",
-      "TradeFavorSecret": "Trade for favor and secrets",
-      "TradeFavor": "Trade for favor",
-      "TradeSecret": "Trade for secrets",
-      "Muster": "Muster",
-      "ExilePay": "Exile may pay secrets as favor",
-      "NeedBanner": "Need a Banner?",
-      "Search": "Search",
-      "PayDS": "Pay all secrets for the Darkest Secret",
-      "PayPF": "Pay all secrets for the People's Favor"
+      "OathSupremacy": "Serment de Suprématie"",
+      "OathProtection": "Serment de Protection",
+      "OathDevotion": "Serment de Dévotion",
+      "OathPeople": "Serment du Peuple",
+      "TrCmFewestWarbands": "*Voyage et Campagne* en ciblant les sites de l'adversaire avec le moins de Troupes",
+      "TrCmMostRelics": "*Voyage et Campagne* en ciblant l'adversaire détenant le plus de Reliques",
+      "TrCmDarkestSecret": "*Voyage et Campagne* en ciblant le détenteur du Sombre Secret",
+      "TrCmPeoplesFavor": "*Voyage et Campagne* en ciblant le détenteur de la Faveur du Peuple",
+      "TrFavor": "*Voyager* vers le site avec les plus de faveur.",
+      "TrSecret": "*Voyager* vers le site avec les plus de secrets.",
+      "TrRelic": "*Voyager* vers un site avec une Relique.",
+      "TradeFavorSecret": "*Commercer* de la faveur et des secrets",
+      "TradeFavor": "*Commercer* de la faveur",
+      "TradeSecret": "*Commercer* des secrets",
+      "Muster": "*Recruter*",
+      "ExilePay": "Un Exilé peut payer de la faveur avec des secrets",
+      "NeedBanner": "Besoin d'une Bannière ?",
+      "Search": "Rechercher",
+      "PayDS": "Payez tous les secrets pour le Sombre Secret",
+      "PayPF": "Payez tous les secrets pour la Faveur du Peuple"
     },
     "NodeChoice": {
-      "Skip": "Skip",
-      "Next": "Next Step",
-      "None": "None of the above",
-      "BRFewest": "Battle Ready? (Rival Site with Fewest)",
-      "BRRelic": "Battle Ready? (Holder of most relics)",
-      "BRDS": "Battle Ready? (Holder of Darkest Secret)",
-      "BRPF": "Battle Ready? (Holder of People's Favor)",
-      "CanPayRelic": "Can Pay? (Relic)",
-      "CanPayDS": "Can Pay? (Darkest Secret)",
-      "CanPayPF": "Can Pay? (People's Favor)",
-      "BannerDS": "Darkest Secret?",
-      "BannerPF": "People's Favor?",
-      "BannerBoth": "Both or neither?",
-      "HoldRelicBanners": "Hold Most Relics & Banners?",
-      "HoldDS": "Hold Darkest Secret?",
-      "HoldPF": "Hold People's Favor?",
-      "RuleMostSites": "Rule most sites?",
+      "Skip": "Passer",
+      "Next": "Prochaine Etape",
+      "None": "Aucun de ces choix",
+      "BRFewest": "Prêt à Combattre ? (Site adverse avec le moins de Troupes)",
+      "BRRelic": "Prêt à Combattre ? (Détenteur du plus de Reliques)",
+      "BRDS": "Prêt à Combattre ? (Détenteur du Sombre Secret)",
+      "BRPF": "Prêt à Combattre ? (Détenteur de la Faveur du Peuple)",
+      "CanPayRelic": "Peut payer ? (Relique)",
+      "CanPayDS": "Peut payer ? (Sombre Secret)",
+      "CanPayPF": "Peut payer ? (Faveur du Peuple)",
+      "BannerDS": "Sombre Secret ?",
+      "BannerPF": "Faveur du Peuple ?",
+      "BannerBoth": "Les deux ou aucune ?",
+      "HoldRelicBanners": "Détenteur du plus de Relique & Bannières ?",
+      "HoldDS": "Détenteur du Sombre Secret ?",
+      "HoldPF": "Détenteur de la Faveur du Peuple ?",
+      "RuleMostSites": "Contrôle les plus de sites ?",
     }
   }
 }
