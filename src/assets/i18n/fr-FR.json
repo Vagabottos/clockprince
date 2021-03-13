@@ -50,7 +50,7 @@
       "People": "Serment du Peuple"
     },
     "NodeText": {
-      "OathSupremacy": "Serment de Suprématie"",
+      "OathSupremacy": "Serment de Suprématie",
       "OathProtection": "Serment de Protection",
       "OathDevotion": "Serment de Dévotion",
       "OathPeople": "Serment du Peuple",
@@ -88,7 +88,7 @@
       "HoldRelicBanners": "Détenteur du plus de Relique & Bannières ?",
       "HoldDS": "Détenteur du Sombre Secret ?",
       "HoldPF": "Détenteur de la Faveur du Peuple ?",
-      "RuleMostSites": "Contrôle les plus de sites ?",
+      "RuleMostSites": "Contrôle les plus de sites ?"
     }
   }
 }
